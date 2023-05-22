@@ -18,7 +18,6 @@ function Home() {
         const data = await response.json();
         setProducts(data)
         setLoading(true)
-        console.log(data);
       }catch(error){
         console.error(error);
       }
@@ -43,6 +42,7 @@ function Home() {
       img={product.image}
       price={product.price}
       description={product.description}
+      id={product.id}
       />
       })}
 

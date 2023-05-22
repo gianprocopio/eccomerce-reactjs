@@ -7,7 +7,7 @@ import { Context } from '../../../Context';
 import "./index.css"
 
 function Navbar() {
-    const {open, setOpen} = useContext(Context)
+    const {open, setOpen, openCartAside, setOpenCartAside} = useContext(Context)
     const context = useContext(Context)
 
 
@@ -43,7 +43,7 @@ function Navbar() {
             />
         </ul>
 
-        <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in opacity-0 lg:opacity-100`}>
+        <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in hidden lg:flex`}>
             <NavItemDesktop 
             path={"/my-orders"}
             title={"My Orders"}
@@ -56,12 +56,16 @@ function Navbar() {
             path={"/sign-in"}
             title={"Sign In"}
             />
-            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-md">
+            
+            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-md" onClick={()=>setOpenCartAside(true)}>
                 <BsCart3 />
                 <p className='bg-cyan-600 text-white h-6 w-6 rounded-2xl text-center'>{context.counter}</p>
             </li>
         </ul>
-            <span className='text-3xl absolute right-8 top-6 cursor-pointer lg:hidden' onClick={()=>setOpen(!open)}>
+            <span className='text-3xl absolute right-8 top-6 cursor-pointer lg:hidden' onClick={()=>{
+                setOpen(!open)
+                setOpenCartAside(false)
+                }}>
             <ion-icon name={open ? "close-outline" : "menu-outline"}></ion-icon>
             </span>
 
@@ -122,7 +126,10 @@ function Navbar() {
             setOpen={setOpen}
             open={open}
             />
-            <li className="flex items-center gap-1 pr-5 cursor-pointer text-xl" onClick={()=>setOpen(!open)}>
+            <li className="flex items-center gap-1 pr-5 cursor-pointer text-xl" onClick={()=>{
+                setOpen(!open)
+                setOpenCartAside(true)}
+                }>
                 <BsCart3 />
                 
                 <p className='bg-cyan-600 text-white h-7 w-7 rounded-2xl text-center'>{context.counter}</p>

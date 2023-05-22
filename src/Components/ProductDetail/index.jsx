@@ -6,7 +6,6 @@ import { useContext } from 'react';
 
 function ProductDetail() {
   const {openProductDetail, setOpenProductDetail, productCard} = useContext(Context);
-  console.log(productCard);
 
   return (
     <aside className={`flex flex-col product-detail fixed right-0 bg-white border border-black rounded-lg top-20 ${!openProductDetail && "hidden"}`}>

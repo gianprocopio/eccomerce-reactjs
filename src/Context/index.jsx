@@ -8,6 +8,9 @@ function ContextProvider({children}) {
   const [open, setOpen] = useState(false);
   const [openProductDetail, setOpenProductDetail] = useState(false);
   const [productCard, setProductCard] = useState({});
+  const [cartProducts, setCartProducts] = useState([]);
+  const [openCartAside, setOpenCartAside] = useState(false);
+  const [openNotification, setOpenNotification] = useState(false);
   
   return (
     <Context.Provider
@@ -19,7 +22,13 @@ function ContextProvider({children}) {
       openProductDetail,
       setOpenProductDetail,
       productCard,
-      setProductCard
+      setProductCard,
+      setCartProducts,
+      cartProducts,
+      openCartAside, 
+      setOpenCartAside,
+      setOpenNotification,
+      openNotification
     }}
     >
       {children}

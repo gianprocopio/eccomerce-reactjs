@@ -8,6 +8,8 @@ import MyOrder from "../MyOrder";
 import SignIn from "../SignIn";
 import NotFound from "../NotFound";
 import Navbar from "../../Components/Navbar/Menu";
+import ShoppingCart from "../../Components/ShoppingCart";
+import Notification from "../../Components/Notification";
 import './App.css';
 
 const AppRoutes = ()=>{
@@ -47,6 +49,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <AppRoutes />
+        <ShoppingCart/>
+        <Notification/>
       </BrowserRouter>
     </ShoppingCartProvider>
    
