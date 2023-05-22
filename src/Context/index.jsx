@@ -1,22 +1,30 @@
 import React, {createContext, useState} from 'react';
 
-export const ShoppingCartContext = createContext()
+export const Context = createContext()
 
 
-function ShoppingCartProvider({children}) {
+function ContextProvider({children}) {
   const [counter, setCounter] = useState(0);
-  console.log(counter);
-
+  const [open, setOpen] = useState(false);
+  const [openProductDetail, setOpenProductDetail] = useState(false);
+  const [productCard, setProductCard] = useState({});
+  
   return (
-    <ShoppingCartContext.Provider
+    <Context.Provider
     value={{
       counter,
-      setCounter
+      setCounter,
+      open,
+      setOpen,
+      openProductDetail,
+      setOpenProductDetail,
+      productCard,
+      setProductCard
     }}
     >
       {children}
-    </ShoppingCartContext.Provider>
+    </Context.Provider>
   )
 }
 
-export default ShoppingCartProvider
+export default ContextProvider

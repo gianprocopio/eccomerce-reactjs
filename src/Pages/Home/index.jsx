@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Layout from '../../Components/Layout';
 import Card from '../../Components/Card';
 import Loader from '../../Components/Loader';
+import ProductDetail from '../../Components/ProductDetail';
 
 
 function Home() {
@@ -13,10 +14,11 @@ function Home() {
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const response = await fetch("https://api.escuelajs.co/api/v1/products");
+        const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
         setProducts(data)
         setLoading(true)
+        console.log(data);
       }catch(error){
         console.error(error);
       }
@@ -31,19 +33,22 @@ function Home() {
     <Layout>
       {!loading && <Loader/>}
 
-      <div className='grid place-content-center lg:grid-cols-4 gap-6 mt-5 w-full max-w-screen-lg md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
+      <div className='grid place-content-center lg:grid-cols-3 gap-10 mt-5 w-full max-w-screen-lg sm:grid-cols-2 grid-cols-1'>
 
       {loading && products.map(product=>{
       return<Card 
       key={product.id}
       name={product.title}
-      category={product.category.name}
-      img={product.images[0]}
+      category={product.category}
+      img={product.image}
       price={product.price}
+      description={product.description}
       />
       })}
 
       </div>
+
+      <ProductDetail/>
     </Layout>
   )
 }

@@ -3,15 +3,17 @@ import { NavLink } from 'react-router-dom';
 import {BsCart3} from "react-icons/bs"
 import NavItemDesktop from '../NavItemDesktop';
 import NavItemMobile from "../NavItemMobile";
-import { ShoppingCartContext } from '../../../Context';
+import { Context } from '../../../Context';
+import "./index.css"
 
 function Navbar() {
-    const [open, setOpen] = useState(false);
-    const context = useContext(ShoppingCartContext)
+    const {open, setOpen} = useContext(Context)
+    const context = useContext(Context)
+
 
   return (
     <nav className='bg-white flex fixed z-10 w-full py-6 px-5 text-md items-center justify-between top-0'>
-        <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in opacity-0 lg:opacity-100`}>
+        <ul className={`md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in hidden lg:flex`}>
             <li className='font-semibold text-lg pl-4'>
                 <NavLink 
                 to="/">
@@ -54,9 +56,9 @@ function Navbar() {
             path={"/sign-in"}
             title={"Sign In"}
             />
-            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-xl">
+            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-md">
                 <BsCart3 />
-                <p>{context.counter}</p>
+                <p className='bg-cyan-600 text-white h-6 w-6 rounded-2xl text-center'>{context.counter}</p>
             </li>
         </ul>
             <span className='text-3xl absolute right-8 top-6 cursor-pointer lg:hidden' onClick={()=>setOpen(!open)}>
@@ -64,8 +66,8 @@ function Navbar() {
             </span>
 
 
-            <ul className={`mr-2 text-white absolute bg-blue-600 w-44 h-100 py-8 px-8 top-28 transition-all duration-300 lg:hidden ${open ? "flex flex-col justify-center items-left right-0 gap-2":"right-[-1500px]"}`}>
-            <li className='font-semibold text-lg m-auto' onClick={()=>setOpen(!open)}>
+            <ul className={`mobile-menu bg-white text-xl mr-2 fixed py-8 px-8 top-28 transition-all duration-300 lg:hidden border border-black rounded-lg ${open ? "flex flex-col justify-center items-left right-0 gap-2":"right-[-1500px]"}`}>
+            <li className='font-semibold text-2xl m-auto' onClick={()=>setOpen(!open)}>
                 <NavLink 
                 to="/">
                     Gian's
@@ -120,9 +122,11 @@ function Navbar() {
             setOpen={setOpen}
             open={open}
             />
-            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-xl" onClick={()=>setOpen(!open)}>
+            <li className="flex items-center gap-1 pr-5 cursor-pointer text-xl" onClick={()=>setOpen(!open)}>
                 <BsCart3 />
-                <p>{context.counter}</p>
+                
+                <p className='bg-cyan-600 text-white h-7 w-7 rounded-2xl text-center'>{context.counter}</p>
+                
             </li>
             </ul>
     </nav>
