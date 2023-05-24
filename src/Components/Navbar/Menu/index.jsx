@@ -7,7 +7,7 @@ import { Context } from '../../../Context';
 import "./index.css"
 
 function Navbar() {
-    const {open, setOpen, openCartAside, setOpenCartAside} = useContext(Context)
+    const {open, setOpen, openCartAside, setOpenCartAside, setOpenProductDetail} = useContext(Context)
     const context = useContext(Context)
 
 
@@ -57,14 +57,18 @@ function Navbar() {
             title={"Sign In"}
             />
             
-            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-md" onClick={()=>setOpenCartAside(true)}>
+            <li className="flex items-center gap-1 pr-5 pl-4 cursor-pointer text-md" onClick={()=>{
+                setOpenCartAside(true);
+                setOpenProductDetail(false);
+                }}>
                 <BsCart3 />
                 <p className='bg-cyan-600 text-white h-6 w-6 rounded-2xl text-center'>{context.counter}</p>
             </li>
         </ul>
             <span className='text-3xl absolute right-8 top-6 cursor-pointer lg:hidden' onClick={()=>{
-                setOpen(!open)
-                setOpenCartAside(false)
+                setOpen(!open);
+                setOpenCartAside(false);
+                setOpenProductDetail(false);
                 }}>
             <ion-icon name={open ? "close-outline" : "menu-outline"}></ion-icon>
             </span>

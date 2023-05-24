@@ -11,6 +11,7 @@ function ContextProvider({children}) {
   const [cartProducts, setCartProducts] = useState([]);
   const [openCartAside, setOpenCartAside] = useState(false);
   const [openNotification, setOpenNotification] = useState(false);
+  const [addToCart, setAddToCart] = useState(false);
   
   return (
     <Context.Provider
@@ -28,7 +29,9 @@ function ContextProvider({children}) {
       openCartAside, 
       setOpenCartAside,
       setOpenNotification,
-      openNotification
+      openNotification,
+      setAddToCart,
+      addToCart
     }}
     >
       {children}

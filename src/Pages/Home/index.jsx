@@ -14,7 +14,7 @@ function Home() {
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch("https://api.escuelajs.co/api/v1/products");
         const data = await response.json();
         setProducts(data)
         setLoading(true)
@@ -32,14 +32,14 @@ function Home() {
     <Layout>
       {!loading && <Loader/>}
 
-      <div className='grid place-content-center lg:grid-cols-3 gap-10 mt-5 w-full max-w-screen-lg sm:grid-cols-2 grid-cols-1'>
+      <div className='grid place-content-center lg:grid-cols-4 gap-10 mt-5 w-full max-w-screen-lg md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
 
       {loading && products.map(product=>{
       return<Card 
       key={product.id}
       name={product.title}
-      category={product.category}
-      img={product.image}
+      category={product.category.name}
+      img={product.images[0]}
       price={product.price}
       description={product.description}
       id={product.id}
