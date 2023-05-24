@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import { Context } from '../../Context';
-import "./index.css";
 
 function Notification() {
     const {openNotification} = useContext(Context);

@@ -32,7 +32,7 @@ function Home() {
     <Layout>
       {!loading && <Loader/>}
 
-      <div className='grid place-content-center lg:grid-cols-4 gap-10 mt-5 w-full max-w-screen-lg md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
+      <div className='grid place-content-center lg:grid-cols-4 gap-3 mt-5 w-full max-w-screen-lg md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
 
       {loading && products.map(product=>{
       return<Card 

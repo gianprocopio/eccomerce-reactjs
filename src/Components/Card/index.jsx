@@ -5,21 +5,14 @@ import { PlusIcon } from '@heroicons/react/24/solid';
 import { CheckIcon } from '@heroicons/react/24/solid';
 
 
-function Card({category, img, name, price, description, id}) {
+function Card(data) {
 
-  const {setOpen, productCard, setProductCard, setCartProducts, cartProducts, setOpenProductDetail, setCounter, counter, setOpenNotification, setOpenCartAside, addToCart, setAddToCart} = useContext(Context);
+  const {setOpen, setCartProducts, cartProducts, setOpenProductDetail, setCounter, counter, setOpenNotification, setOpenCartAside, addToCart, setProductCard} = useContext(Context);
 
 
-  const showProduct = ()=>{
+  const showProduct = (productData)=>{
     setOpenProductDetail(true);
-    setProductCard({
-      category: category,
-      img: img,
-      name: name,
-      price: price,
-      description: description,
-      id: id
-    })
+    setProductCard(productData)
     setOpenCartAside(false);
     setOpen(false)
   }
@@ -27,14 +20,6 @@ function Card({category, img, name, price, description, id}) {
   const addProductsToCart = (event, productData)=>{
     event.stopPropagation();
     setCounter(counter + 1)
-    setProductCard({
-      category: category,
-      img: img,
-      name: name,
-      price: price,
-      description: description,
-      id: id
-    })
     setCartProducts([...cartProducts, productData]);
     setOpenNotification(true);
     setTimeout(()=>{
@@ -42,7 +27,7 @@ function Card({category, img, name, price, description, id}) {
       setOpenNotification(false);
     }, 2000)
     setOpenProductDetail(false)
-    setAddToCart(true)
+    // setAddToCart(true)
   }
 
   
@@ -50,28 +35,22 @@ function Card({category, img, name, price, description, id}) {
   return (
     <div 
     className={`bg-white cursor-pointer w-56 h-60 rounded-lg mx-auto mt-6`}
-    onClick={()=> showProduct()}
+    onClick={()=> showProduct(data)}
     >
         <figure className='relative mb-2 w-full h-4/5'>
-            <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{category}</span>
-            <img className='w-full h-full object-cover rounded-lg' src={img} alt="product-img" />
+            <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.category.name}</span>
+            <img className='w-full h-full object-cover rounded-lg' src={data.img} alt="product-img" />
             <div 
             className={`absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 font-medium hover:bg-cyan-600 transition-all duration-300 hover:text-white ${addToCart ? "hidden": "block"}`} 
-            onClick={(event)=> addProductsToCart(event, productCard)}
+            onClick={(event)=> addProductsToCart(event, data)}
             >
             <PlusIcon className={`w-6 h-6`}/>
 
             </div>
-            <div 
-            className={`absolute top-0 right-0 flex justify-center items-center w-6 h-6 rounded-full m-2 font-medium text-white cursor-not-allowed bg-green-500 ${addToCart ? "block": "hidden"}`} 
-            >
-
-            <CheckIcon className={`w-6 h-6`}/>
-            </div>
         </figure>
         <p className='flex justify-between gap-2'>
-            <span className='text-sm font-light'>{name}</span>
-            <span className='text-lg font-medium'>${price}</span>
+            <span className='text-sm font-light'>{data.name}</span>
+            <span className='text-lg font-medium'>${data.price}</span>
         </p>
     </div>
   )
