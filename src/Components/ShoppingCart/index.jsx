@@ -2,13 +2,14 @@ import React, { useContext }  from 'react';
 import "./index.css";
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import {Context} from "../../Context";
+import {totalPrice} from "../../Utils"
 import OrderCard from '../OrderCard';
 
 function ShoppingCart() {
     const {openCartAside, setOpenCartAside, cartProducts} = useContext(Context);
   return (
 
-    <aside className={`flex flex-col fixed bg-white border border-black rounded-lg top-20 right-0 transition-all duration-300 h-full w-80 ${!openCartAside && "right-[-1000px]"}`}>
+    <aside className={`flex flex-col fixed bg-white border border-black rounded-lg top-20 right-0 transition-all duration-300 w-80 ${!openCartAside && "right-[-1000px]"}`}>
         <div className='flex justify-between items-center p-6'>
             <h2>My order</h2>
             <div>
@@ -28,6 +29,14 @@ function ShoppingCart() {
             />
         })}
         </div>
+
+        <div className='px-6'>
+        <p className='flex justify-between pb-3'>
+          <span className='font-medium text-lg'>Total:</span>
+          <span className='font-bold text-xl'>${totalPrice(cartProducts)}</span>
+        </p>
+        </div>
+
     </aside>
   )
 }
