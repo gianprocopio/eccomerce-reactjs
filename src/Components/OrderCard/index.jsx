@@ -6,11 +6,16 @@ function OrderCard(productData) {
     const { img, name, price, id} = productData;
     const {cartProducts, setCartProducts, setCounter} = useContext(Context)
 
+    const saveItemsLocalStorage = (newItems)=>{
+        localStorage.setItem("PRODUCTS",JSON.stringify(newItems))
+        setCartProducts(newItems)
+    }
+
     const deleteItemsFromCart = (id)=>{
         const newCart = [...cartProducts];
         const itemIndex = newCart.findIndex(item => item.id === id);
         newCart.splice(itemIndex, 1);
-        setCartProducts(newCart)
+        saveItemsLocalStorage(newCart);
         setCounter(newCart.length)
     }
 

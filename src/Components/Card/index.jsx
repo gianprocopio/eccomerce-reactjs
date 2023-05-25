@@ -17,17 +17,21 @@ function Card(data) {
     setOpen(false)
   }
 
+  const saveItemsLocalStorage = (newItems)=>{
+    localStorage.setItem("PRODUCTS",JSON.stringify(newItems))
+    setCartProducts(newItems)
+  }
+
   const addProductsToCart = (event, productData)=>{
     event.stopPropagation();
     setCounter(counter + 1)
-    setCartProducts([...cartProducts, productData]);
+    saveItemsLocalStorage([...cartProducts, productData]);
     setOpenNotification(true);
     setTimeout(()=>{
 
       setOpenNotification(false);
     }, 2000)
-    setOpenProductDetail(false)
-    // setAddToCart(true)
+    setOpenProductDetail(false);
   }
 
   

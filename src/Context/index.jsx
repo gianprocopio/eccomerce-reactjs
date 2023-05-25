@@ -4,14 +4,26 @@ export const Context = createContext()
 
 
 function ContextProvider({children}) {
-  const [counter, setCounter] = useState(0);
   const [open, setOpen] = useState(false);
   const [openProductDetail, setOpenProductDetail] = useState(false);
   const [productCard, setProductCard] = useState({});
-  const [cartProducts, setCartProducts] = useState([]);
   const [openCartAside, setOpenCartAside] = useState(false);
   const [openNotification, setOpenNotification] = useState(false);
   const [addToCart, setAddToCart] = useState(false);
+
+
+  const localStorageItems = localStorage.getItem("PRODUCTS");
+  let parsedItems;
+  if(localStorageItems){
+    parsedItems = JSON.parse(localStorageItems);
+  }else{
+    localStorage.setItem("PRODUCTS", JSON.stringify([]))
+  }
+  
+  const [cartProducts, setCartProducts] = useState(()=>{
+    return parsedItems || []
+  });
+  const [counter, setCounter] = useState(cartProducts.length);
   
   return (
     <Context.Provider
