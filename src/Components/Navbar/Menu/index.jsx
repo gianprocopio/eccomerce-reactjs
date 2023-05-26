@@ -34,8 +34,8 @@ function Navbar() {
             title={"Furniture"}
             />
             <NavItemDesktop 
-            path={"/toys"}
-            title={"Toys"}
+            path={"/shoes"}
+            title={"Shoes"}
             />
             <NavItemDesktop 
             path={"/others"}
@@ -62,7 +62,7 @@ function Navbar() {
                 setOpenProductDetail(false);
                 }}>
                 <BsCart3 />
-                <p className='bg-cyan-600 text-white h-6 w-6 rounded-2xl text-center'>{context.counter}</p>
+                <p className='bg-cyan-600 text-white h-6 w-6 rounded-2xl text-center'>{context.cartProducts.length}</p>
             </li>
         </ul>
             <span className='text-3xl absolute right-8 top-6 cursor-pointer lg:hidden' onClick={()=>{
@@ -101,8 +101,8 @@ function Navbar() {
             open={open}
             />
             <NavItemMobile
-            path={"/toys"}
-            title={"Toys"}
+            path={"/shoes"}
+            title={"Shoes"}
             setOpen={setOpen}
             open={open}
             />
@@ -136,7 +136,7 @@ function Navbar() {
                 }>
                 <BsCart3 />
                 
-                <p className='bg-cyan-600 text-white h-7 w-7 rounded-2xl text-center'>{context.counter}</p>
+                <p className='bg-cyan-600 text-white h-7 w-7 rounded-2xl text-center'>{context.cartProducts.length}</p>
                 
             </li>
             </ul>

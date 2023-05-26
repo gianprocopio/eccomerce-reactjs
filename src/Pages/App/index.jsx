@@ -10,7 +10,9 @@ import NotFound from "../NotFound";
 import Navbar from "../../Components/Navbar/Menu";
 import ShoppingCart from "../../Components/ShoppingCart";
 import Notification from "../../Components/Notification";
+import UseCertainCategory from "../../Components/UseCertainCategory";
 import './App.css';
+import Card from "../../Components/Card";
 
 const AppRoutes = ()=>{
   let routes = useRoutes([
@@ -37,6 +39,26 @@ const AppRoutes = ()=>{
     {
       path: "/sign-in",
       element: <SignIn />
+    },
+    {
+      path: "/clothes",
+      element: <UseCertainCategory cat={"Clothes"} />
+    },,
+    {
+      path: "/electronics",
+      element: <UseCertainCategory cat={"Electronics"} />
+    },,
+    {
+      path: "/furniture",
+      element: <UseCertainCategory cat={"Furniture"} />
+    },,
+    {
+      path: "/shoes",
+      element: <UseCertainCategory cat={"Shoes"} />
+    },,
+    {
+      path: "/others",
+      element: <UseCertainCategory cat={"Others"} />
     },
     {
       path: "/*",

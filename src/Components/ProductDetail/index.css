@@ -2,4 +2,25 @@
     width: 360px;
     height: calc(100vh - 68px);
     top: 80px;
+    overflow-y: scroll;
+}
+
+.product-detail::-webkit-scrollbar {
+    width: 12px;
+}
+    
+.product-detail::-webkit-scrollbar-track {
+    background: #ffffff;
+      
+}
+    
+.product-detail::-webkit-scrollbar-thumb {
+  background-color: #141414;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px){
+  .product-detail{
+    width: 320px;
+  }
 }

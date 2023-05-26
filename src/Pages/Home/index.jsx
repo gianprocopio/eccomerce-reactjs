@@ -1,49 +1,43 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState, useContext} from 'react';
 import Layout from '../../Components/Layout';
 import Card from '../../Components/Card';
 import Loader from '../../Components/Loader';
 import ProductDetail from '../../Components/ProductDetail';
+import { Context } from '../../Context';
 
 
 function Home() {
-
-  const [products, setProducts] = useState(null);
-  const [loading, setLoading] = useState(false);
+  
+  const {products, loading, setSearchValue, searchValue} = useContext(Context);
   
   
-  useEffect(()=>{
-    const fetchData = async ()=>{
-      try{
-        const response = await fetch("https://api.escuelajs.co/api/v1/products");
-        const data = await response.json();
-        setProducts(data)
-        setLoading(true)
-      }catch(error){
-        console.error(error);
-      }
-    }
-    setTimeout(()=>{
-
-      fetchData()
-    }, 800)
-  }, [])
 
   return (
     <Layout>
-      {!loading && <Loader/>}
 
+      <h1 className='font-medium text-xl'>What are you looking for?</h1>
+      <input 
+      type='text' 
+      placeholder='Search...' 
+      className='border border-black outline-none mt-8 p-2 text-md w-80 rounded-lg'
+      onChange={(e)=> setSearchValue(e.target.value)}
+      />
+      {!loading && <Loader/>}
       <div className='grid place-content-center lg:grid-cols-4 gap-3 mt-5 w-full max-w-screen-lg md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
 
       {loading && products.map(product=>{
-      return<Card 
-      key={product.id}
-      name={product.title}
-      category={product.category.name}
-      img={product.images[0]}
-      price={product.price}
-      description={product.description}
-      id={product.id}
-      />
+        if(product.title.toLowerCase().includes(searchValue.toLowerCase())){
+          
+          return<Card 
+          key={product.id}
+          name={product.title}
+          category={product.category.name}
+          img={product.images[0]}
+          price={product.price}
+          description={product.description}
+          id={product.id}
+          />
+        }
       })}
 
       </div>

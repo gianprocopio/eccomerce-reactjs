@@ -7,7 +7,7 @@ import OrderCard from '../OrderCard';
 import "./index.css";
 
 function ShoppingCart() {
-    const {openCartAside, setOpenCartAside, cartProducts, setOrder, order, setCartProducts, setCounter} = useContext(Context);
+    const {openCartAside, setOpenCartAside, cartProducts, setOrder, order, setCartProducts, setCounter, setSearchValue} = useContext(Context);
 
     const saveItemsLocalStorage = (newItems, itemName, setter)=>{
       localStorage.setItem(itemName,JSON.stringify(newItems))
@@ -26,6 +26,7 @@ function ShoppingCart() {
       setOpenCartAside(false)
       saveItemsLocalStorage([...order, orderToAdd], "ORDERS", setOrder)
       setCounter(0)
+      setSearchValue('')
     }
 
   return (

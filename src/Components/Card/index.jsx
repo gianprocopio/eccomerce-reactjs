@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import { Context } from '../../Context';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { CheckIcon } from '@heroicons/react/24/solid';
-import { render } from 'react-dom';
 
 
 function Card(data) {
@@ -69,7 +68,7 @@ function Card(data) {
     onClick={()=> showProduct(data)}
     >
         <figure className='relative mb-2 w-full h-4/5'>
-            <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.category.name}</span>
+            <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>{data.category}</span>
             <img className='w-full h-full object-cover rounded-lg' src={data.img} alt="product-img" />
             {renderIcon(data.id)}
         </figure>

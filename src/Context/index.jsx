@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useState, useEffect} from 'react';
 
 export const Context = createContext()
 
@@ -35,6 +35,27 @@ function ContextProvider({children}) {
     return parsedItems || []
   });
   const [counter, setCounter] = useState(cartProducts.length);
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
+
+
+  const fetchData = async ()=>{
+    try{
+      const response = await fetch("https://api.escuelajs.co/api/v1/products");
+      const data = await response.json();
+      setProducts(data)
+      setLoading(true)
+    }catch(error){
+      console.error(error);
+    }
+  }
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      fetchData()
+    }, 800)
+  }, [])
   
   return (
     <Context.Provider
@@ -56,7 +77,12 @@ function ContextProvider({children}) {
       setAddToCart,
       addToCart,
       order,
-      setOrder
+      setOrder,
+      products,
+      setProducts,
+      loading,
+      setSearchValue,
+      searchValue
     }}
     >
       {children}

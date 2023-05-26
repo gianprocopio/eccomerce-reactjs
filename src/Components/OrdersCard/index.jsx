@@ -18,7 +18,7 @@ function OrdersCard(productData) {
 
   return (
     <div className='flex justify-between items-center mb-3 border border-black rounded-lg p-4 w-80'>
-      <p className='flex justify-between w-full'>
+      <div className='flex justify-between w-full'>
         <div className='flex flex-col'>
           <p className='flex gap-2'>
             <CalendarDaysIcon className='w-5 h-5'/>
@@ -29,12 +29,12 @@ function OrdersCard(productData) {
             <span className='font-light'>{totalProducts} product (s)</span>
           </p>
         </div>
-        <p className='flex items-center justify-center gap-2'>
+        <div className='flex items-center justify-center gap-2'>
 
             <span className='font-medium text-2xl'>${totalPrice}</span>
-            <ChevronRightIcon className='w-6 h-6'/>
-        </p>
-      </p>
+            <ChevronRightIcon className='w-6 h-6 mt-1'/>
+        </div>
+      </div>
     </div>
     
   )
