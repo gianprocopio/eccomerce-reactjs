@@ -11,6 +11,15 @@ function ContextProvider({children}) {
   const [openNotification, setOpenNotification] = useState(false);
   const [addToCart, setAddToCart] = useState(false);
 
+  const localStorageOrders = localStorage.getItem("ORDERS");
+  let parsedOrders;
+  if(localStorageOrders){
+    parsedOrders = JSON.parse(localStorageOrders);
+  }else{
+    localStorage.setItem("ORDERS", JSON.stringify([]))
+  }
+
+  const [order, setOrder] = useState(()=>parsedOrders || []);
 
   const localStorageItems = localStorage.getItem("PRODUCTS");
   let parsedItems;
@@ -19,6 +28,8 @@ function ContextProvider({children}) {
   }else{
     localStorage.setItem("PRODUCTS", JSON.stringify([]))
   }
+
+
   
   const [cartProducts, setCartProducts] = useState(()=>{
     return parsedItems || []
@@ -43,7 +54,9 @@ function ContextProvider({children}) {
       setOpenNotification,
       openNotification,
       setAddToCart,
-      addToCart
+      addToCart,
+      order,
+      setOrder
     }}
     >
       {children}

@@ -27,7 +27,11 @@ const AppRoutes = ()=>{
       element: <MyOrders />
     },
     {
-      path: "/my-order",
+      path: "/my-orders/last",
+      element: <MyOrder />
+    },
+    {
+      path: "/my-orders/:id",
       element: <MyOrder />
     },
     {
