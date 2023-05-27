@@ -1,6 +1,6 @@
 <h2>About the project</h2>
 
-<label>This is a minimalist e-commerce website built with React.js and TailwindCSS. This website features a modern and intuitive design, with easy-to-use navigation and a simple shopping experience that puts the focus on the products.</p>
+<p>This is a minimalist e-commerce website built with React.js and TailwindCSS. This website features a modern and intuitive design, with easy-to-use navigation and a simple shopping experience that puts the focus on the products.</p>
 
 👉 Live Demo: <a href='https://giansmovies.netlify.app/'>Gian's movies Demo</a>
 
@@ -11,7 +11,7 @@
 
 <h2>Screenshots of the Project 📸</h2>
 <br>
-<h3 align='center'>Home Page 🏡</h3>
+<h3 text-align='center'>Home Page 🏡</h3>
 
 <div align='center'>
 <img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/home-page.png'/>
@@ -25,4 +25,33 @@
 
 <br>
 <br>
+  <h3 align='center'>Certain Category 👠</h3>
+
+<div align='center'>
+<img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/certain-category.png'/>
+
+<br>
+<br>
+  <h3 align='center'>Shopping Cart 🛒</h3>
+
+<div align='center'>
+<img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/shopping-cart.png'/>
+
+<br>
+<br>
+  <h3 align='center'>Checkout order 📝</h3>
+
+<div align='center'>
+<img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/checkout-order.png'/>
+
+<br>
+<br>
+  <h3 align='center'>Shopping record 💸</h3>
+
+<div align='center'>
+<img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/register-orders.png'/>
+
+<br>
+<br>
+ 
 </div>
