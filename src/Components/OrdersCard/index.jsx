@@ -6,12 +6,7 @@ import {ShoppingBagIcon} from "@heroicons/react/24/solid";
 
 function OrdersCard(productData) {
     const { totalPrice, totalProducts } = productData;
-    const {cartProducts, setCartProducts, setCounter} = useContext(Context)
 
-    const saveItemsLocalStorage = (newItems)=>{
-        localStorage.setItem("PRODUCTS",JSON.stringify(newItems))
-        setCartProducts(newItems)
-    }
 
     const date = new Date();
 

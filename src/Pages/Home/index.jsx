@@ -4,16 +4,18 @@ import Card from '../../Components/Card';
 import Loader from '../../Components/Loader';
 import ProductDetail from '../../Components/ProductDetail';
 import { Context } from '../../Context';
+import SignIn from '../SignIn';
 
 
 function Home() {
   
-  const {products, loading, setSearchValue, searchValue} = useContext(Context);
+  const {products, loading, setSearchValue, searchValue, authenticated} = useContext(Context);
   
-  
+  const Render = ()=>{
+    if(authenticated){
+      return (
 
-  return (
-    <Layout>
+        <Layout>
 
       <h1 className='font-medium text-xl'>What are you looking for?</h1>
       <input 
@@ -44,6 +46,19 @@ function Home() {
 
       <ProductDetail/>
     </Layout>
+      )
+    }
+    else{
+      return (
+        <Layout>
+          <SignIn/>
+        </Layout>
+      )
+    }
+  }
+
+  return (
+   <Render /> 
   )
 }
 

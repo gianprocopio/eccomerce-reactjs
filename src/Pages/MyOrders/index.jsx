@@ -40,7 +40,7 @@ const cleanOrdersRegister = ()=>{
         ))
       }
 
-      <button className={`bg-black text-white font-medium w-20 h-8 hover:border hover:border-black hover:text-black hover:bg-white transition-all duration-300 ${order.length > 0 ? "block": "hidden"}`} onClick={()=> cleanOrdersRegister()}>Clean</button>
+      <button className={`bg-black text-white font-medium w-20 h-8 border border-black hover:text-black hover:bg-white transition-all duration-300 ${order.length > 0 ? "block": "hidden"}`} onClick={()=> cleanOrdersRegister()}>Clean</button>
     </Layout>
     )
 }

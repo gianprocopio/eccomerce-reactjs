@@ -4,14 +4,17 @@ import Loader from '../Loader';
 import Layout from '../Layout';
 import Card from '../Card';
 import ProductDetail from '../ProductDetail';
+import SignIn from '../../Pages/SignIn';
 
 function UseCertainCategory({cat}) {
-  const {products, loading, setSearchValue, searchValue} = useContext(Context)
+  const {products, loading, setSearchValue, searchValue, authenticated} = useContext(Context)
   
-      const category = products?.filter(product => product.category.name == cat);
+  const category = products?.filter(product => product.category.name == cat);
 
-  return (
-    <Layout>
+  const Render = ()=>{
+    if(authenticated){
+      return (
+        <Layout>
 
       <h1 className='font-medium text-xl'>{cat}</h1>
       <input 
@@ -38,6 +41,18 @@ function UseCertainCategory({cat}) {
         </div>
         <ProductDetail/>
     </Layout>
+      )
+    }else{
+      return(
+        <Layout>
+          <SignIn/>
+        </Layout>
+      )
+    }
+  }
+
+  return (
+    <Render />
   )
 }
 

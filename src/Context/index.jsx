@@ -4,6 +4,28 @@ export const Context = createContext()
 
 
 function ContextProvider({children}) {
+  const localStorageAuthentication = localStorage.getItem("Authenticated");
+  let parsedAuthentication;
+  if(localStorageAuthentication === "true"){
+    parsedAuthentication = JSON.parse(true);
+  }else{
+    localStorage.setItem("Authenticated", JSON.stringify(false))
+  }
+
+  const localStorageUserData = localStorage.getItem("userData");
+  let parsedUserData;
+  if(localStorageUserData){
+    parsedUserData = JSON.parse(localStorageUserData);
+  }else{
+    localStorage.setItem("Authenticated", JSON.stringify({}))
+  }
+
+
+  const [authenticated, setAuthenticated] = useState(parsedAuthentication);
+  const [userData, setUserData] = useState(parsedUserData || {});
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
   const [open, setOpen] = useState(false);
   const [openProductDetail, setOpenProductDetail] = useState(false);
   const [productCard, setProductCard] = useState({});
@@ -56,7 +78,14 @@ function ContextProvider({children}) {
       fetchData()
     }, 800)
   }, [])
+
+useEffect(()=>{
+  setUserName(userData.name);
+  setUserEmail(userData.email);
+  setUserPassword(userData.password);
+}, [userData])
   
+
   return (
     <Context.Provider
     value={{
@@ -82,7 +111,17 @@ function ContextProvider({children}) {
       setProducts,
       loading,
       setSearchValue,
-      searchValue
+      searchValue,
+      authenticated,
+      setAuthenticated,
+      userData,
+      setUserData,
+      userName,
+      setUserName,
+      userEmail,
+      setUserEmail,
+      userPassword,
+      setUserPassword
     }}
     >
       {children}

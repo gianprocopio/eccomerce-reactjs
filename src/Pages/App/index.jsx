@@ -12,7 +12,6 @@ import ShoppingCart from "../../Components/ShoppingCart";
 import Notification from "../../Components/Notification";
 import UseCertainCategory from "../../Components/UseCertainCategory";
 import './App.css';
-import Card from "../../Components/Card";
 
 const AppRoutes = ()=>{
   let routes = useRoutes([
@@ -35,10 +34,6 @@ const AppRoutes = ()=>{
     {
       path: "/my-orders/:id",
       element: <MyOrder />
-    },
-    {
-      path: "/sign-in",
-      element: <SignIn />
     },
     {
       path: "/clothes",

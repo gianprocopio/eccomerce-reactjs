@@ -61,7 +61,7 @@ function ShoppingCart() {
         <Link
         to='/my-orders/last'
         >
-        <button className='bg-black w-full text-white rounded-lg text-lg hover:border-black hover:border hover:bg-white hover:text-black font-medium my-2 p-1 transition-all duration-200' onClick={()=> checkOut()}>Checkout</button>
+        <button className='bg-black w-full text-white rounded-lg text-lg border-black border hover:bg-white hover:text-black font-medium my-2 p-1 transition-all duration-200' onClick={()=> checkOut()}>Checkout</button>
         </Link>
         </div>
 
