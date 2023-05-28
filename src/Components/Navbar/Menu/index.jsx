@@ -46,7 +46,7 @@ function Navbar() {
                     />
                 </ul>
         
-                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in hidden lg:flex`}>
+                <ul className={`md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in hidden lg:flex`}>
                     <NavItemDesktop 
                     path={"/my-orders"}
                     title={"My Orders"}
@@ -73,7 +73,7 @@ function Navbar() {
                     </span>
         
         
-                    <ul className={`mobile-menu bg-white text-xl mr-2 fixed py-8 px-8 top-28 transition-all duration-300 lg:hidden border border-black rounded-lg ${open ? "flex flex-col justify-center items-left right-0 gap-2":"right-[-1500px]"}`}>
+                    <ul className={`mobile-menu bg-white text-xl mr-2 fixed py-8 px-8 top-28  lg:hidden border border-black rounded-lg ${open ? "flex flex-col justify-center items-left right-0 gap-2":"right-[-1500px]"}`}>
                     <li className='font-semibold text-2xl m-auto' onClick={()=>setOpen(!open)}>
                         <NavLink 
                         to="/">
