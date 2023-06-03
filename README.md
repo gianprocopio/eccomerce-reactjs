@@ -13,6 +13,20 @@ API used: https://fakestoreapi.com/
 
 <h2>Screenshots of the Project 📸</h2>
 <br>
+<h3 text-align='center'>Login Page 👨</h3>
+
+<div align='center'>
+<img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/login.png'/>
+</div>
+
+<br><br>
+<h3 align='center'>Product Detail 📝</h3>
+
+<div align='center'>
+<img src='https://raw.githubusercontent.com/gianprocopio/eccomerce-reactjs/main/img/product-detail.png'/>
+
+<br>
+<br>
 <h3 text-align='center'>Home Page 🏡</h3>
 
 <div align='center'>
