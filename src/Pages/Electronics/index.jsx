@@ -4,17 +4,17 @@ import Loader from '../../Components/Loader';
 import Layout from '../../Components/Layout';
 import Card from '../../Components/Card';
 
-function Clothes() {
+function Electronics() {
   const {products, loading} = useContext(Context)
   
-      const clothes = products?.filter(product => product.category.name == "Clothes");
+      const electronics = products?.filter(product => product.category == "electronics");
 
   return (
     <Layout>
         {!loading && <Loader/>}
         <div className='grid place-content-center lg:grid-cols-4 gap-3 mt-5 w-full max-w-screen-lg md:grid-cols-3 sm:grid-cols-2 grid-cols-1'>
 
-        {loading && clothes?.map(product=>(
+        {loading && electronics?.map(product=>(
 
             <Card key={product.id}
               name={product.title}
@@ -30,4 +30,4 @@ function Clothes() {
   )
 }
 
-export default Clothes
+export default Electronics

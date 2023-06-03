@@ -25,24 +25,20 @@ function Navbar() {
                     </li>
         
                     <NavItemDesktop 
-                    path={"/clothes"}
-                    title={"Clothes"}
-                    />
-                    <NavItemDesktop 
                     path={"/electronics"}
                     title={"Electronics"}
                     />
                     <NavItemDesktop 
-                    path={"/furniture"}
-                    title={"Furniture"}
+                    path={"/jewelery"}
+                    title={"Jewelery"}
                     />
                     <NavItemDesktop 
-                    path={"/shoes"}
-                    title={"Shoes"}
+                    path={"/menclothing"}
+                    title={"Men's clothing"}
                     />
                     <NavItemDesktop 
-                    path={"/others"}
-                    title={"Others"}
+                    path={"/womenclothing"}
+                    title={"Women's clothing"}
                     />
                 </ul>
         
@@ -82,32 +78,26 @@ function Navbar() {
                     </li>
         
                     <NavItemMobile
-                    path={"/clothes"}
-                    title={"Clothes"}
-                    setOpen={setOpen}
-                    open={open}
-                    />
-                    <NavItemMobile
                     path={"/electronics"}
                     title={"Electronics"}
                     setOpen={setOpen}
                     open={open}
                     />
                     <NavItemMobile
-                    path={"/furniture"}
-                    title={"Furniture"}
+                    path={"/jewelery"}
+                    title={"Jewelery"}
                     setOpen={setOpen}
                     open={open}
                     />
                     <NavItemMobile
-                    path={"/shoes"}
-                    title={"Shoes"}
+                    path={"/menclothing"}
+                    title={"Men's clothing"}
                     setOpen={setOpen}
                     open={open}
                     />
                     <NavItemMobile
-                    path={"/others"}
-                    title={"Others"}
+                    path={"/womenclothing"}
+                    title={"Women's clothing"}
                     setOpen={setOpen}
                     open={open}
                     />

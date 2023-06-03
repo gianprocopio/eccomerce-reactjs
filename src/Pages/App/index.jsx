@@ -36,24 +36,25 @@ const AppRoutes = ()=>{
       element: <MyOrder />
     },
     {
-      path: "/clothes",
-      element: <UseCertainCategory cat={"Clothes"} />
-    },,
-    {
       path: "/electronics",
-      element: <UseCertainCategory cat={"Electronics"} />
+      element: <UseCertainCategory catTitle={"Electronics"}
+      cat={"electronics"} />
     },,
     {
-      path: "/furniture",
-      element: <UseCertainCategory cat={"Furniture"} />
+      path: "/jewelery",
+      element: <UseCertainCategory catTitle={"Jewelery"}
+      cat={"jewelery"} />
     },,
     {
-      path: "/shoes",
-      element: <UseCertainCategory cat={"Shoes"} />
+      path: "/menclothing",
+      element: <UseCertainCategory catTitle={"Men's clothing"} 
+      cat={"men's clothing"}/>
     },,
     {
-      path: "/others",
-      element: <UseCertainCategory cat={"Others"} />
+      path: "/womenclothing",
+      element: <UseCertainCategory catTitle={"Women's clothing"}
+      cat={"women's clothing"}
+      />
     },
     {
       path: "/*",

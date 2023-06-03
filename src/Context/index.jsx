@@ -59,12 +59,12 @@ function ContextProvider({children}) {
   const [counter, setCounter] = useState(cartProducts.length);
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState(null);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(null);
 
 
   const fetchData = async ()=>{
     try{
-      const response = await fetch("https://api.escuelajs.co/api/v1/products");
+      const response = await fetch("https://fakestoreapi.com/products");
       const data = await response.json();
       setProducts(data)
       setLoading(true)
